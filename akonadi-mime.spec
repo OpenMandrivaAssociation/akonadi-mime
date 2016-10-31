@@ -36,7 +36,7 @@ Akonadi Mime Integration.
 #--------------------------------------------------------------------
 
 %define major 5
-%define libkname %mklibname KF5AkonadiMime %{major}
+%define libname %mklibname KF5AkonadiMime %{major}
 
 %package -n %{libname}
 Summary:      Akonadi Mime Integration main library
