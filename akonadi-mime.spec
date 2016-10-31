@@ -36,7 +36,7 @@ Akonadi Mime Integration.
 %define libkname %mklibname KF5AkonadiMime %{major}
 
 %package -n %{libname}
-Summary:      Akonadi Contacts Integration main library
+Summary:      Akonadi Mime Integration main library
 Group:        System/Libraries
 
 %description -n %{libname}
