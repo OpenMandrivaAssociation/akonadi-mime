@@ -1,6 +1,6 @@
 Name:		akonadi-mime
 Version:	16.08.2
-Release:	1
+Release:	2
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/KDE
@@ -57,8 +57,8 @@ Summary:        Devel stuff for %{name}
 Group:          Development/KDE and Qt
 Requires:       %{name} = %{EVRD}
 Requires:       %{libname} = %{EVRD}
-Obsoletes:      kdepimlibs-devel < 16.08.2
-Provides:       kdepimlibs-devel = %{EVRD}
+Obsoletes:      kdepimlibs-devel < 3:16.08.2
+Provides:       kdepimlibs-devel = 3:%{version}
 
 %description -n %{develname}
 This package contains header files needed if you wish to build applications
