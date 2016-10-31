@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig(shared-mime-info)
 Akonadi Mime Integration.
 
 %files
+%{_bindir}/akonadi_benchmarker
 %{_datadir}/config.kcfg/specialmailcollections.kcfg
 %{_datadir}/mime/packages/x-vnd.kde.contactgroup.xml
 
@@ -69,7 +70,7 @@ based on %{name}.
 %{_includedir}/KF5/*_version.h
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5AkonadiMime/
-%{_qt5_prefix}/mkspecs/modules/*.pri
+%{_libdir}/qt5/mkspecs/modules/*.pri
 
 #--------------------------------------------------------------------
 
