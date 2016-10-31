@@ -1,0 +1,82 @@
+Name:		akonadi-mime
+Version:	16.08.2
+Release:	1
+Summary:	Akonadi Mime Integration
+License:	GPLv2+ and LGPLv2+
+Group:		Graphical desktop/KDE
+URL:		https://www.kde.org/
+Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
+
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	cmake(KF5Akonadi) >= 5.3.1
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5DBusAddons)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5ItemModels)
+BuildRequires:	cmake(KF5KDELibs4Support)
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5Mime)
+BuildRequires:	cmake(KF5XmlGui)
+BuildRequires:	xsltproc
+BuildRequires:	boost-devel
+BuildRequires:	pkgconfig(libxslt)
+BuildRequires:	pkgconfig(shared-mime-info)
+
+%description
+Akonadi Mime Integration.
+
+%files
+%{_datadir}/config.kcfg/specialmailcollections.kcfg
+%{_datadir}/mime/packages/x-vnd.kde.contactgroup.xml
+
+#--------------------------------------------------------------------
+
+%define major 5
+%define libkname %mklibname KF5AkonadiMime %{major}
+
+%package -n %{libname}
+Summary:      Akonadi Contacts Integration main library
+Group:        System/Libraries
+
+%description -n %{libname}
+Akonadi Mime Integration main library.
+
+%files -n %{libname}
+%{_libdir}/libKF5AkonadiMime.so.%{major}*
+
+#--------------------------------------------------------------------
+
+%define develname %mklibname KF5AkonadiMime -d
+
+%package -n %{develname}
+Summary:        Devel stuff for %{name}
+Group:          Development/KDE and Qt
+Requires:       %{name} = %{EVRD}
+Requires:       %{libname} = %{EVRD}
+Obsoletes:      kdepimlibs-devel < 16.08.2
+Provides:       kdepimlibs-devel = %{EVRD}
+
+%description -n %{develname}
+This package contains header files needed if you wish to build applications
+based on %{name}.
+
+%files -n %{develname}
+%{_includedir}/KF5/Akonadi/KMime/
+%{_includedir}/KF5/akonadi/kmime/
+%{_includedir}/KF5/*_version.h
+%{_libdir}/*.so
+%{_libdir}/cmake/KF5AkonadiMime/
+%{_qt5_prefix}/mkspecs/modules/*.pri
+
+#--------------------------------------------------------------------
+
+%prep
+%setup -q
+%cmake_kde5
+
+%build
+%ninja -C build
+
+%install
+%ninja_install -C build
