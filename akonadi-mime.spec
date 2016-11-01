@@ -1,6 +1,8 @@
 Name:		akonadi-mime
+# (tpg) add epoch to keep compatability with kdepimlibs
+Epoch:		3
 Version:	16.08.2
-Release:	2
+Release:	3
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/KDE
