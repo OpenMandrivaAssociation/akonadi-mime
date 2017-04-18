@@ -1,7 +1,7 @@
 Name:		akonadi-mime
 # (tpg) add epoch to keep compatability with kdepimlibs
 Epoch:		3
-Version:	17.03.80
+Version:	17.04.0
 Release:	1
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
@@ -36,7 +36,7 @@ BuildRequires:	pkgconfig(shared-mime-info)
 %description
 Akonadi Mime Integration.
 
-%files
+%files -f libakonadi-kmime5.lang
 %{_bindir}/akonadi_benchmarker
 %{_datadir}/config.kcfg/specialmailcollections.kcfg
 %{_datadir}/mime/packages/x-vnd.kde.contactgroup.xml
@@ -91,3 +91,4 @@ based on %{name}.
 
 %install
 %ninja_install -C build
+%find_lang libakonadi-kmime5
