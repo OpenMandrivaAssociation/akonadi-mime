@@ -1,7 +1,7 @@
 Name:		akonadi-mime
 # (tpg) add epoch to keep compatability with kdepimlibs
 Epoch:		3
-Version:	19.04.3
+Version:	19.07.80
 Release:	1
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
@@ -37,7 +37,7 @@ BuildRequires:	pkgconfig(shared-mime-info)
 Akonadi Mime Integration.
 
 %files -f libakonadi-kmime5.lang
-%{_sysconfdir}/xdg/akonadi-mime.categories
+%{_datadir}/qlogging-categories5/akonadi-mime.categories
 %{_libdir}/qt5/plugins/akonadi_serializer_mail.so
 %{_datadir}/akonadi/plugins/serializer/*
 %{_bindir}/akonadi_benchmarker
