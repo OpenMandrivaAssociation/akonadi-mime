@@ -32,6 +32,9 @@ BuildRequires:	xsltproc
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(shared-mime-info)
+# For QCH format docs
+BuildRequires: doxygen
+BuildRequires: qt5-assistant
 
 %description
 Akonadi Mime Integration.
