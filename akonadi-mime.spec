@@ -1,7 +1,7 @@
 Name:		akonadi-mime
 # (tpg) add epoch to keep compatability with kdepimlibs
 Epoch:		3
-Version:	21.12.2
+Version:	22.03.80
 Release:	1
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
@@ -80,9 +80,7 @@ This package contains header files needed if you wish to build applications
 based on %{name}.
 
 %files -n %{develname}
-%{_includedir}/KF5/Akonadi/KMime/
-%{_includedir}/KF5/akonadi/kmime/
-%{_includedir}/KF5/*_version.h
+%{_includedir}/KF5/AkonadiMime
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5AkonadiMime/
 %{_libdir}/qt5/mkspecs/modules/*.pri
