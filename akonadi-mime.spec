@@ -1,7 +1,7 @@
 Name:		akonadi-mime
 # (tpg) add epoch to keep compatability with kdepimlibs
 Epoch:		3
-Version:	22.04.3
+Version:	22.07.90
 Release:	1
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
