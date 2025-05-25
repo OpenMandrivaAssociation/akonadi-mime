@@ -2,7 +2,7 @@
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Name:		plasma6-akonadi-mime
-Version:	25.04.0
+Version:	25.04.1
 Release:	%{?git:0.%{git}.}1
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
@@ -38,13 +38,18 @@ BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(shared-mime-info)
 # For QCH format docs
-BuildRequires: doxygen
-BuildRequires: qt6-qttools-assistant
+BuildRequires:	doxygen
+BuildRequires:	qt6-qttools-assistant
+# Renamed 2025-05-25 after 6.0
+%rename plasma6-akonadi-mime
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 Akonadi Mime Integration.
 
-%files -f libakonadi-kmime6.lang
+%files -f %{name}.lang
 %{_datadir}/qlogging-categories6/akonadi-mime.categories
 %{_libdir}/qt6/plugins/akonadi_serializer_mail.so
 %{_datadir}/akonadi/plugins/serializer/*
@@ -61,6 +66,9 @@ Akonadi Mime Integration.
 Summary:      Akonadi Mime Integration main library
 Group:        System/Libraries
 Requires:	%{name} >= %{EVRD}
+# Not a 1:1 replacement, but we need to get rid of old cruft...
+Obsoletes:	%{mklibname KF5AkonadiMime 5}
+Obsoletes:	%{mklibname KPim5AkonadiMime}
 
 %description -n %{libname}
 Akonadi Mime Integration main library.
@@ -77,8 +85,9 @@ Summary:        Devel stuff for %{name}
 Group:          Development/KDE and Qt
 Requires:       %{name} = %{EVRD}
 Requires:       %{libname} = %{EVRD}
-Obsoletes:      kdepimlibs-devel < 3:16.08.2
-Provides:       kdepimlibs-devel = 3:%{version}
+# Not a 1:1 replacement, but we need to get rid of old cruft...
+Obsoletes:	%{mklibname -d KF5AkonadiMime}
+Obsoletes:	%{mklibname -d KPim5AkonadiMime}
 
 %description -n %{develname}
 This package contains header files needed if you wish to build applications
@@ -87,18 +96,3 @@ based on %{name}.
 %files -n %{develname}
 %{_includedir}/KPim6/AkonadiMime
 %{_libdir}/cmake/KPim6AkonadiMime/
-
-#--------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n akonadi-mime-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang libakonadi-kmime6
