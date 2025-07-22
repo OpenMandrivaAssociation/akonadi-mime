@@ -1,7 +1,7 @@
 #define git 20240217
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
-Name:		plasma6-akonadi-mime
+Name:		akonadi-mime
 Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 Summary:	Akonadi Mime Integration
