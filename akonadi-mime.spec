@@ -2,7 +2,7 @@
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Name:		akonadi-mime
-Version:	25.08.0
+Version:	25.08.1
 Release:	%{?git:0.%{git}.}1
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
@@ -51,7 +51,8 @@ Akonadi Mime Integration.
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/akonadi-mime.categories
-%{_libdir}/qt6/plugins/akonadi_serializer_mail.so
+%{_qtdir}/plugins/akonadi_serializer_mail.so
+%{_qtdir}/qml/org/kde/akonadi/mime
 %{_datadir}/akonadi/plugins/serializer/*
 %{_bindir}/akonadi_benchmarker
 %{_datadir}/config.kcfg/specialmailcollections.kcfg
