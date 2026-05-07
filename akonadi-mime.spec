@@ -2,7 +2,7 @@
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Name:		akonadi-mime
-Version:	26.04.0
+Version:	26.04.1
 Release:	%{?git:0.%{git}.}1
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
