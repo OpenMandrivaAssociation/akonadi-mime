@@ -2,7 +2,7 @@
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Name:		akonadi-mime
-Version:	26.04.3
+Version:	26.08.0
 Release:	%{?git:0.%{git}.}1
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
@@ -32,7 +32,7 @@ BuildRequires:	cmake(KF6ItemModels)
 BuildRequires:	cmake(KF6KIO)
 BuildRequires:	cmake(KF6XmlGui)
 BuildRequires:	cmake(KPim6Akonadi)
-BuildRequires:	cmake(KPim6Mime)
+BuildRequires:	cmake(KF6Mime)
 BuildRequires:	xsltproc
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libxslt)
