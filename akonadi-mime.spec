@@ -4,6 +4,8 @@
 Name:		akonadi-mime
 Version:	26.08.0
 Release:	%{?git:0.%{git}.}1
+# cmake configs still contain a dead KPim6Mime fallback
+%global __requires_exclude cmake\\(KPim6Mime\\)|cmake\\(kpim6mime\\)
 Summary:	Akonadi Mime Integration
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/KDE
