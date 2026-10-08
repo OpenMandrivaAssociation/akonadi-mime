@@ -2,7 +2,7 @@
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Name:		akonadi-mime
-Version:	26.08.1
+Version:	26.08.2
 Release:	%{?git:0.%{git}.}1
 # cmake configs still contain a dead KPim6Mime fallback
 %global __requires_exclude cmake\\(KPim6Mime\\)|cmake\\(kpim6mime\\)
